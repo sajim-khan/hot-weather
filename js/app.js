@@ -7,9 +7,26 @@ const loadTemperature = city => {
     .then(data => displayTemperatures(data));
 }
 
-const displayTemperatures = data => {
-    document.getElementById('temperature').innerText = data.main.temp;
-    //console.log(data.main.temp);
-};
+const displayTemperatures = data =>{
+    // const temperature = document.getElementById('temperature')
+    // temperature.innerText = data.main.temp
+    console.log(data.weather[0].main);
+    setInnerTextById('temperature', data.main.temp)
+    setInnerTextById('weather', data.weather[0].main)
+    
+}
+
+const setInnerTextById = (id, text) => {
+    const temperature = document.getElementById(id)
+    temperature.innerText = text
+}
+
+document.getElementById('btn-search').addEventListener('click', function() {
+     const searchField = document.getElementById('search-field');
+     const city = searchField.value
+     document.getElementById('city').innerText = city;
+     loadTemperature(city)
+})
 
 loadTemperature('dhaka')
+
