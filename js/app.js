@@ -7,6 +7,7 @@ const loadTemperature = city => {
     .then(data => displayTemperatures(data));
 }
 
+// display data
 const displayTemperatures = data =>{
     // const temperature = document.getElementById('temperature')
     // temperature.innerText = data.main.temp
@@ -16,6 +17,7 @@ const displayTemperatures = data =>{
     
 }
 
+// function for setInnerText
 const setInnerTextById = (id, text) => {
     const temperature = document.getElementById(id)
     temperature.innerText = text
@@ -29,4 +31,5 @@ document.getElementById('btn-search').addEventListener('click', function() {
 })
 
 loadTemperature('dhaka')
+
 
